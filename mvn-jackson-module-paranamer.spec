@@ -4,7 +4,7 @@
 #
 Name     : mvn-jackson-module-paranamer
 Version  : 2.7.9
-Release  : 1
+Release  : 2
 URL      : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 Source0  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.pom
