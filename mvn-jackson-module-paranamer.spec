@@ -4,14 +4,19 @@
 #
 Name     : mvn-jackson-module-paranamer
 Version  : 2.7.9
-Release  : 2
+Release  : 3
 URL      : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 Source0  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 Source1  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.pom
+Source2  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.jar
+Source3  : https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-jackson-module-paranamer-data = %{version}-%{release}
+Requires: mvn-jackson-module-paranamer-license = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 No detailed description available
@@ -24,16 +29,33 @@ Group: Data
 data components for the mvn-jackson-module-paranamer package.
 
 
+%package license
+Summary: license components for the mvn-jackson-module-paranamer package.
+Group: Default
+
+%description license
+license components for the mvn-jackson-module-paranamer package.
+
+
 %prep
+%setup -q -n META-INF
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-jackson-module-paranamer
+cp LICENSE %{buildroot}/usr/share/package-licenses/mvn-jackson-module-paranamer/LICENSE
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9
-cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9
+cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.pom
 
 
 %files
@@ -43,3 +65,9 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/fasterxml/jackson/m
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.jar
 /usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.7.9/jackson-module-paranamer-2.7.9.pom
+/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.jar
+/usr/share/java/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.9.9/jackson-module-paranamer-2.9.9.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-jackson-module-paranamer/LICENSE
